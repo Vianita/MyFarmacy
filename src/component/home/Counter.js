@@ -28,16 +28,16 @@ function Counter({ initial, max, min, onAdd }) {
 
 
     return <div style={{ display: 'flex', marginTop: 10, flexDirection: 'column', justifyContent: 'space-between'}}>
-        <IconButton edge="start" className={classes.IconButton} color="secondary" aria-label="add" disabled={count === max} onClick={incrementOne}>
+        <IconButton edge="start" className={classes.IconButton} color="primary" aria-label="add" disabled={count === max} onClick={incrementOne}>
             <AddIcon />
         </IconButton> 
-        <IconButton edge="start" className={classes.IconButton} color="secondary" aria-label="subs" onClick={decrementOne}>
+        <IconButton edge="start" className={classes.IconButton} color="primary" aria-label="subs" onClick={decrementOne}>
             <RemoveIcon />
         </IconButton>
          
             {count === max
                 ?
-                <h5 style={{ background: "#757519",  color: "#F6F634"}}>
+                <h5 style={{ background: "primary",  color: "#F6F634"}}>
                 "Usted llegó al máximo de productos"
                 </h5>
                 : `Quedan ${max - count} productos`

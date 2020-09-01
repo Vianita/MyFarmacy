@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Button, TextField, Box } from '@material-ui/core';
-import {primaryBackground} from '../../constants';
 
 
 
 
-function UserForm({greeting, maxLength, onClickSave}) {
+
+function UserForm({greeting, maxLength, onClickSave, saveLabel}) {
     const [user, setUser] = useState({name:"", lastname:"", email:""})
 
 
@@ -16,9 +16,12 @@ function UserForm({greeting, maxLength, onClickSave}) {
     }
     
     
-    let isDisable = false || !user.name || !user.lastname
+    let isDisable = !user.name || !user.lastname
+
+    const error = isDisable?"Complete los campos":""
+
     return <>
-        <h1>{greeting}</h1>
+        <h5 style={{ color:"GrayText" }} >{greeting}</h5>
         <Box display= "flex"  flexDirection= "column" >
 
             <TextField label= "Name"  value={user.name}             onChange={handleChange("name")} />
@@ -26,10 +29,15 @@ function UserForm({greeting, maxLength, onClickSave}) {
             <TextField label= "Email"  value={user.email}               onChange={handleChange("aemail")} />
             <TextField label= "Name length"  value={user.name.length} disabled />
 
-            lastname: {user.lastname}
-            <Button className={primaryBackground} disabled={isDisable} onClick={onClickSave} >Agregar</Button>
+            <p style={{ backgroundColor:"GrayText"}} >{error}</p>
+            <Button variant="contained" color="default"  disabled={isDisable} onClick={onClickSave} >{saveLabel}</Button>
+  
 
         </Box>
+
+        <br />
+        <br />
+        <br />
     </>;
     
 }
