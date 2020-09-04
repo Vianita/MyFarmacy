@@ -37,9 +37,9 @@ function Counter({ initial, max, min, onAdd }) {
          
             {count === max
                 ?
-                <h5 style={{ background: "primary",  color: "#F6F634"}}>
+                <h6 style={{ background: "primary",  color: "#F6F634"}}>
                 "Usted llegó al máximo de productos"
-                </h5>
+                </h6>
                 : `Quedan ${max - count} productos`
             } 
 
