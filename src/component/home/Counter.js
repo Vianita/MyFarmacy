@@ -28,7 +28,7 @@ function Counter({ initial, max, min, onAdd }) {
 
 
     return <div style={{ display: 'flex', marginTop: 10, flexDirection: 'column', justifyContent: 'space-between'}}>
-        <div style={{ display:"flex", flexDirection:"row", alignItems: "center"}}>
+        <div style={{ display:"flex", flexDirection:"row", alignItems: "center", justifyContent: "space-between", color:"GrayText"}}>
             <IconButton edge="start" className={classes.IconButton} color="primary" aria-label="add" disabled={count === max} onClick={incrementOne}>
                 <AddIcon />
             </IconButton> 
