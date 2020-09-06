@@ -37,7 +37,6 @@ function UserForm({greeting, maxLength, onClickSave, saveLabel}) {
 
         <br />
         <br />
-        <br />
     </>;
     
 }

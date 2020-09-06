@@ -1,6 +1,10 @@
 import React, { useEffect, useState }  from 'react';
 import Home from '../component/home/Home';
-import GetProducts, { ProductList }  from '../component/Products/GetProducts'
+import GetProducts, { ProductList }  from '../component/Products/GetProducts';
+import { Box } from '@material-ui/core';
+import ItemDetail from '../component/categories/ItemDetail';
+
+
 
 
 
@@ -21,12 +25,17 @@ function HomeContainer() {
 
     
     return  <>
-    <Home link="https://reactjs.org" text="Hello Coders!" subtitle="Lo hice solita!!!!">
+    <Home >
+    { loading && <p>Loading...</p>}
+    <Box display="flex">
+    <ProductList products={products} />
+    </Box>
+    <ItemDetail />
+    
     <button type="button" onClick={() => alert('This is a button!')}>Boton</button>
     </Home>
-    { loading && <p>Loading...</p>}
-    <GetProducts products={products} />
-    <ProductList />
+    
+    
     
 
     </>
