@@ -4,6 +4,7 @@ import React from 'react';
 import { makeStyles, AppBar, Toolbar, IconButton, Typography, Button } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { Link } from 'react-router-dom';
 
 
 
@@ -30,17 +31,19 @@ function NavBar() {
                 <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                   <MenuIcon />
                 </IconButton>
-                <Typography variant="h6" >
+                <Typography variant="h6">
                   <img src='/logo-ph.svg'
                       height={40}   
                       alt="logoP" />
                 </Typography>
-                <Typography variant="h6" className={classes.title}>
+                <Typography variant="h6" className={classes.title} >
                   My Pharmacy
                 </Typography>
+                <Link to={`/cart`}>
                 <IconButton aria-label="ShoppingCart" color="inherit" onClick={(e) => alert('Haz login para agregar productos al carro')}>
                   <ShoppingCartIcon />
                 </IconButton>
+                </Link>
                 <Button color="inherit">
                   Login
                 </Button>

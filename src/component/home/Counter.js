@@ -27,7 +27,7 @@ function Counter({ initial, max, min, onAdd }) {
     };
 
 
-    return <div style={{ display: 'flex', marginTop: 10, flexDirection: 'column', justifyContent: 'space-between'}}>
+    return <div style={{ display: 'flex', marginTop: 10, flexDirection: 'column', justifyContent: 'center'}}>
         <div style={{ display:"flex", flexDirection:"row", alignItems: "center", justifyContent: "space-between", color:"GrayText"}}>
             <IconButton edge="start" className={classes.IconButton} color="primary" aria-label="add" disabled={count === max} onClick={incrementOne}>
                 <AddIcon />
@@ -46,7 +46,7 @@ function Counter({ initial, max, min, onAdd }) {
                 : `Quedan ${max - count} productos`
             } 
 
-        <Button variant="contained" color="primary" size="small" onClick={(e) => onAdd=('Ir al carrito')}>
+        <Button variant="contained" color="primary" onClick={(e) => onAdd=('Ir al carrito')}>
           Ir al carrito
         </Button>
         

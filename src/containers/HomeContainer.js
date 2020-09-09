@@ -1,9 +1,12 @@
-import React  from 'react';
+import React, { useState, useEffect }  from 'react';
 import Home from '../component/home/Home';
 
 import { Box } from '@material-ui/core';
-import ItemDetail from '../component/categories/ItemDetail';
-import ItemDetailContainer from '../component/categories/ItemDetailContainer';
+
+import ItemList, { Medicines } from '../component/categories/ItemList';
+
+
+
 
 
 
@@ -11,21 +14,29 @@ import ItemDetailContainer from '../component/categories/ItemDetailContainer';
 
 
 function HomeContainer() {
-    return  <>
-    <Home >
-   
-    
-    <Box display="flex">
-    <ItemDetailContainer />
-    <ItemDetail />
-    </Box>
-    
-    <button type="button" onClick={() => alert('This is a button!')}>Boton</button>
-    </Home>
-    
-    
-    
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
+
+    useEffect(() => {
+        // Hagamos cosas acá para consumir recursos caros
+        ItemList().then(res => {
+            setProducts(res);
+            setLoading(false);
+        });
+        
+    }, []);
+    return  <>
+        <Home >
+        
+        { loading && <p>Loading...</p>}
+        <Box display="flex" flexDirection="row" justify-content="space-around">
+        <Medicines products={products} />
+        </Box>
+
+        <button type="button" onClick={() => alert('This is a button!')}>Boton</button>
+        </Home>
+    
     </>
 }
 
