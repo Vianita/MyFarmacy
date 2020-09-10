@@ -11,29 +11,34 @@ import ItemDetailContainer from './component/categories/ItemDetailContainer';
 //import { Box } from '@material-ui/core';
 
 
-
-
 function App() {
   return (
     <BrowserRouter>
     <ThemeProvider theme={theme}>
     <div >
-      
       <NavBarContainer />
       <Switch>
       {/* <Box display="flex" flexDirection="row" justify-content="space-around" > */}
       <Route exact path="/">
       <HomeContainer />
       </Route>
-      <Route>
-      <ItemDetailContainer path="/item/:id" />
+      <Route path="/item/:id" >
+      <ItemDetailContainer />
       </Route>
       {/* </Box> */}
+      <Route path="/cart" >
+      <h1>Cart view</h1>
+      </Route>
       </Switch>
+      
     </div>
     </ThemeProvider>
     </BrowserRouter>
+    
   );
 }
+
+
+
 
 export default App;

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles, IconButton, Button, Typography } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
+import { Link } from 'react-router-dom';
 
 const useStayles = makeStyles((theme) => ({
     IconButton: {
@@ -27,8 +28,8 @@ function Counter({ initial, max, min, onAdd }) {
     };
 
 
-    return <div style={{ display: 'flex', marginTop: 10, flexDirection: 'column', justifyContent: 'center'}}>
-        <div style={{ display:"flex", flexDirection:"row", alignItems: "center", justifyContent: "space-between", color:"GrayText"}}>
+    return <div style={{ display:"flex", flexDirection:"column", alignItems: "center",  color:"Background"}}>
+        <div>
             <IconButton edge="start" className={classes.IconButton} color="primary" aria-label="add" disabled={count === max} onClick={incrementOne}>
                 <AddIcon />
             </IconButton> 
@@ -45,10 +46,11 @@ function Counter({ initial, max, min, onAdd }) {
                 </Typography>
                 : `Quedan ${max - count} productos`
             } 
-
+        <Link style={{textDecoration:"none"}} to={`/cart`}>
         <Button variant="contained" color="primary" onClick={(e) => onAdd=('Ir al carrito')}>
           Ir al carrito
         </Button>
+        </Link>
         
     </div>
     

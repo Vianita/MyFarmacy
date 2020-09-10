@@ -4,7 +4,8 @@ import React from 'react';
 import { makeStyles, AppBar, Toolbar, IconButton, Typography, Button } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+
 
 
 
@@ -24,23 +25,34 @@ const useStayles = makeStyles((theme) => ({
 
 function NavBar() {
     const classes = useStayles();
-    
+    const [expanded, setExpanded] =React.useState(false);
+    const openMenu = () => {
+      setExpanded(!expanded)
+    }
     return <div className={classes.root}>
         <AppBar position="fixed">
+          {expanded && (<>
+          <NavLink to="/" >Home</NavLink>
+          <NavLink to="/item/340020" >Detalle</NavLink> </>)}
+          
             <Toolbar>
-                <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+              
+                <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={() => openMenu() }>
                   <MenuIcon />
                 </IconButton>
+                
+                <Link to={`/`}>
                 <Typography variant="h6">
                   <img src='/logo-ph.svg'
                       height={40}   
                       alt="logoP" />
                 </Typography>
+                </Link>
                 <Typography variant="h6" className={classes.title} >
                   My Pharmacy
                 </Typography>
                 <Link to={`/cart`}>
-                <IconButton aria-label="ShoppingCart" color="inherit" onClick={(e) => alert('Haz login para agregar productos al carro')}>
+                <IconButton aria-label="ShoppingCart" color="inherit" >
                   <ShoppingCartIcon />
                 </IconButton>
                 </Link>

@@ -1,8 +1,7 @@
 import React, { useState, useEffect }  from 'react';
+
 import Home from '../component/home/Home';
-
 import { Box } from '@material-ui/core';
-
 import ItemList, { Medicines } from '../component/categories/ItemList';
 
 
@@ -26,15 +25,14 @@ function HomeContainer() {
         });
         
     }, []);
+        
+
     return  <>
         <Home >
-        
         { loading && <p>Loading...</p>}
         <Box display="flex" flexDirection="row" justify-content="space-around">
         <Medicines products={products} />
         </Box>
-
-        <button type="button" onClick={() => alert('This is a button!')}>Boton</button>
         </Home>
     
     </>
