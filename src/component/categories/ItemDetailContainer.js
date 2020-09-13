@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getOneItem } from './ItemList';
 import ItemDetail from './ItemDetail';
 import { useParams, Link } from 'react-router-dom';
+import { Typography} from '@material-ui/core';
 
 
 
@@ -24,7 +25,7 @@ function ItemDetailContainer(props) {
     
 
     return <>
-        <p>Mostrando item: {id} </p>
+        <Typography variant="h6" color="primary" >Mostrando item: {id} </Typography>
         <Link to="/">Volver al listado</Link>
 
     { loading && <p>Loading...</p>}
