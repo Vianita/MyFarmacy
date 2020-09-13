@@ -13,6 +13,8 @@ const useStayles = makeStyles((theme) => ({
 
 
 
+
+
 function Counter({ initial, max, min, onAdd }) {
     const classes = useStayles();
     const [count, setCount] = useState(initial);
@@ -26,6 +28,8 @@ function Counter({ initial, max, min, onAdd }) {
         if(count > min)
             setCount(count - 1);
     };
+
+    
 
 
     return <div style={{ display:"flex", flexDirection:"column", alignItems: "center",  color:"Background"}}>
