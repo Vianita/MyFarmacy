@@ -1,24 +1,30 @@
 import React, { useState } from 'react';
-import { IconButton, Button, Typography } from '@material-ui/core';
+import { IconButton, Typography } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
-import { Link } from 'react-router-dom';
 
 
 
 
-function Counter({ initial, max, min, onAdd }) {
+
+function Counter({ initial, max, min, num}) {
     
     const [count, setCount] = useState(initial);
 
     const incrementOne = () => {
-        if(count < max)
+        if(count < max){
             setCount(count + 1);
+            num(count + 1);
+        }
+
     };
 
     const decrementOne= () => {
-        if(count > min)
+        if(count > min){
             setCount(count - 1);
+            num(count - 1);
+        }
+
     };
 
     
@@ -42,13 +48,7 @@ function Counter({ initial, max, min, onAdd }) {
                 </Typography>
                 : `Quedan ${max - count} productos`
             } 
-        <Link style={{textDecoration:"none"}} to={`/cart`}>
-        <Button variant="contained" color="primary" onClick={(e) => onAdd(count)}>
-          Comprar
-          <span style={{marginLeft:30}}>{count}</span>
-          
-        </Button>
-        </Link>
+
         
     </div>
     
